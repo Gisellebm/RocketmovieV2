@@ -3,10 +3,11 @@ import styled from "styled-components";
 export const Container = styled.header`
     grid-area: header;
     width: 100%;
-    padding: 2.4rem 12.3rem;
+    padding: 0 12.3rem;
     
     display: flex;
     justify-content: space-between;
+    gap: 6.4rem;
     align-items: center;
     
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
@@ -31,6 +32,7 @@ export const Profile = styled.div`
         strong {
             font-size: 1.4rem;
             color: ${({ theme }) => theme.COLORS.WHITE};
+            width: max-content;
         }
 
         button {
