@@ -26,10 +26,10 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
     gap: 4rem;
-    overflow-y: auto;
 
 
     > p {
+        padding-right: 1rem;
         text-align: justify;
     }
 
