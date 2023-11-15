@@ -2,21 +2,31 @@ import styled from "styled-components";
 
 export const Container = styled.header`
     grid-area: header;
-    width: 100%;
-    padding: 0 12.3rem;
-    
     display: flex;
-    justify-content: space-between;
-    gap: 6.4rem;
     align-items: center;
+    
     
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
     border-bottom: 1px solid ${({ theme }) => theme.COLORS.GRAY_200};
 
-    > h1 {
-        font-size: 2.4rem;
-        color: ${({ theme }) => theme.COLORS.PINK};
+    > content {
+        width: 100%;
+        max-width: calc(100% - 24.6rem);
+        margin: 0 auto;
+        
+        display: flex;
+        justify-content: space-between;
+        gap: 6.4rem;
+
+        align-items: center;
+        
+        
+        h1 {
+            font-size: 2.4rem;
+            color: ${({ theme }) => theme.COLORS.PINK};
+        }
     }
+
 `
 
 export const Profile = styled.div`
