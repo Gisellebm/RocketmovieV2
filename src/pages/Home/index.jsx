@@ -1,5 +1,5 @@
-import { Container, Title, Content } from "./styles";
-import { Button } from "../../components/Button";
+import { FiPlus } from "react-icons/fi";
+import { Container, Title, Content, NewMovie } from "./styles";
 import { Header } from "../../components/Header";
 import { Movie } from "../../components/Movie";
 
@@ -11,9 +11,10 @@ export function Home() {
             <main>
                 <Title>
                     <h1>Meus filmes</h1>
-                    <div>
-                        <Button title="Adicionar filme" />
-                    </div>
+                    <NewMovie to="/new">
+                        <FiPlus />
+                        Adicionar filme
+                    </NewMovie>
                 </Title>
 
                 <Content>

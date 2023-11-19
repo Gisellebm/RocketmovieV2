@@ -1,14 +1,21 @@
 import { Container, Form, Avatar } from "./style";
+import { useNavigate } from "react-router-dom";
 import { FiArrowLeft, FiUser, FiMail, FiLock, FiCamera } from "react-icons/fi";
 import { ButtonText } from "../../components/ButtonText";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 
 export function Profile() {
+    const navigate = useNavigate();
+
+    function handleHome() {
+        navigate("/");  
+    }
+
     return (
         <Container>
             <header>
-                <ButtonText icon={FiArrowLeft} title="Voltar" size={16} />
+                <ButtonText icon={FiArrowLeft} title="Voltar" size={16} onClick={handleHome} />
             </header>
 
             <Form>
