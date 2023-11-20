@@ -20,10 +20,25 @@ export const Container = styled.header`
         gap: 6.4rem;
 
         align-items: center;
-        
+        position: relative;     
         
         h1 {
             font-size: 2.4rem;
+            color: ${({ theme }) => theme.COLORS.PINK};
+        }
+
+        button {
+            background-color: transparent;
+            color: ${({ theme }) => theme.COLORS.GRAY_300};
+            border: none;
+            font-size: 1.4rem;
+
+            position: absolute;
+            top: 4.2rem;
+            right: 7.4rem;
+        }
+
+        button:hover {
             color: ${({ theme }) => theme.COLORS.PINK};
         }
     }
@@ -44,17 +59,6 @@ export const Profile = styled(Link)`
             font-size: 1.4rem;
             color: ${({ theme }) => theme.COLORS.WHITE};
             width: max-content;
-        }
-
-        button {
-            background-color: transparent;
-            color: ${({ theme }) => theme.COLORS.GRAY_300};
-            border: none;
-            font-size: 1.4rem;
-        }
-
-        button:hover {
-            color: ${({ theme }) => theme.COLORS.PINK};
         }
     }
 

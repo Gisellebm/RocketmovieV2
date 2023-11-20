@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { createContext, useContext, useState, useEffect } from "react";
 import { api } from "../services/api";
 
-const AuthContext = createContext({});
+export const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
     const [data, setData] = useState({});
@@ -27,6 +27,17 @@ function AuthProvider({ children }) {
         }
     }
 
+    AuthProvider.propTypes = {
+        children: PropTypes.node.isRequired,
+    }
+
+    function signOut() {
+        localStorage.removeItem("@rocketMovies:user");
+        localStorage.removeItem("@rocketMovies:token");
+
+        setData({}); // voltar para o estado inicial
+    }
+
     useEffect(() => {
         const user = localStorage.getItem("@rocketMovies:user");
         const token = localStorage.getItem("@rocketMovies:token");
@@ -41,15 +52,12 @@ function AuthProvider({ children }) {
     }, []);
 
     return (
-        <AuthContext.Provider value={{ signIn, user: data.user }}>
+        <AuthContext.Provider value={{ signIn, signOut, user: data.user }}>
             {children}
         </AuthContext.Provider>
     );
 }
 
-AuthProvider.propTypes = {
-    children: PropTypes.node.isRequired,
-}
 
 function useAuth() {
     const context = useContext(AuthContext);
