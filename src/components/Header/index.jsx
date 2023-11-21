@@ -10,10 +10,15 @@ import { ButtonText } from "../ButtonText";
 
 export function Header({onChange}) {
     const { signOut, user } = useAuth();
+    const navigate = useNavigate();
+
+    function handleSignOut() {
+        navigate("/");
+        signOut();
+    }
 
     const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
-    const navigate = useNavigate();
 
     function handleBack() {
       navigate(-1);
@@ -39,7 +44,7 @@ export function Header({onChange}) {
                     <img src={avatarUrl} alt={user.name} />
                 </Profile>
                 
-                <button className='sair' onClick={signOut}>Sair</button>
+                <button className='sair' onClick={handleSignOut}>Sair</button>
             </main>
         </Container>
     )

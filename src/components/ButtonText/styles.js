@@ -8,4 +8,6 @@ export const Container = styled.button`
     color: ${({ theme }) => theme.COLORS.PINK};
     border: none;
     font-size: 1.6rem;
+
+    
 `

@@ -65,5 +65,9 @@ export const Form = styled.div`
             background-color: ${({ theme} ) => theme.COLORS.BACKGROUND_900};
             color: ${({ theme} ) => theme.COLORS.PINK};
         }
+
+        .excluir:hover {
+            background-color: ${({ theme} ) => theme.COLORS.BROWN};
+        }
     }
 `

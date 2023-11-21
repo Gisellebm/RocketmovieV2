@@ -45,7 +45,11 @@ export function New() {
     }
 
     if (newTag) {
-      return alert("Por favor, você precisa clicar no marcador para adicionar!");
+      return alert("Por favor, você precisa clicar no marcador '+' para adicionar uma nova tag!");
+    }
+
+    if (tags.length === 0) {
+      return alert("Por favor, adicione pelo menos uma tag para o filme!");
     }
 
     await api.post("/movies", {
