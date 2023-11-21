@@ -77,6 +77,7 @@ export function Details() {
                   {
                     data.tags.map(tag => (
                       <Tag 
+                        isDetails
                         title={tag.name}
                         key={String(tag.id)}
                       />

@@ -27,7 +27,6 @@ export const Content = styled.div`
     flex-direction: column;
     gap: 4rem;
 
-
     > p {
         padding-right: 1rem;
         text-align: justify;
