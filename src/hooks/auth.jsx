@@ -38,7 +38,7 @@ function AuthProvider({ children }) { // contexto de autenticação
         setData({}); // voltar para o estado inicial
     }
 
-    async function updateProfile({ user, avatarFile }) { // função para atualizar o perfil 
+    async function updatedProfile({ user, avatarFile }) { // função para atualizar o perfil 
         try{
             if(avatarFile) { // se o arquivo de imagem tiver sido selecionado
                 const fileUploadForm = new FormData(); // criar um formulário de envio de arquivos para o servidor
@@ -78,7 +78,7 @@ function AuthProvider({ children }) { // contexto de autenticação
     }, []);
 
     return (
-        <AuthContext.Provider value={{ signIn, signOut, updateProfile, user: data.user }}>
+        <AuthContext.Provider value={{ signIn, signOut, updatedProfile, user: data.user }}>
             {children}
         </AuthContext.Provider>
     );
