@@ -32,6 +32,29 @@ export const Form = styled.div`
     flex-direction: column;
     gap: 4rem;
 
+    > section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            color: ${({ theme }) => theme.COLORS.GRAY_100};
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 1.6rem;
+            gap: 2.4rem;
+            background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+            border-radius: 1rem;
+            border: none;
+        }
+    }
+
     >.twoColumns {
         columns: 2;
         gap: 4rem;
