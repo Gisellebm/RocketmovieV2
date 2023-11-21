@@ -56,7 +56,7 @@ export function New() {
     });
 
     alert("Filme adicionado com sucesso");
-    navigate("/")
+    handleBack();
   }
 
   function handleDeleteMovie() {
@@ -64,7 +64,7 @@ export function New() {
 
     if(userConfirmation) {
       alert("Filme deletado com sucesso!");
-      navigate("/")
+      handleBack();
     }
   }
 

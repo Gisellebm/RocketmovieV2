@@ -22,12 +22,12 @@ export const Container = styled.header`
         align-items: center;
         position: relative;     
         
-        h1 {
+        .title {
             font-size: 2.4rem;
             color: ${({ theme }) => theme.COLORS.PINK};
         }
 
-        button {
+        button.sair {
             background-color: transparent;
             color: ${({ theme }) => theme.COLORS.GRAY_300};
             border: none;
@@ -38,7 +38,7 @@ export const Container = styled.header`
             right: 7.4rem;
         }
 
-        button:hover {
+        button.sair:hover {
             color: ${({ theme }) => theme.COLORS.PINK};
         }
     }

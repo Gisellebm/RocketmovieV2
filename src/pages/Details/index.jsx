@@ -1,7 +1,6 @@
 import { FiArrowLeft, FiClock } from 'react-icons/fi';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import moment from "moment-timezone";
 import { useAuth } from "../../hooks/auth";
 import { api } from "../../services/api";
@@ -33,9 +32,13 @@ export function Details() {
   }
 
   async function handleRemoveMovie() {
-    const response = await api.delete(`/movies/${params.id}`);
-    alert(response.data.message);
-    handleBack();
+    const confirm = window.confirm("Tem certeza que deseja remover esta nota sobre o filme?");
+
+    if (confirm) {
+      await api.delete(`/movies/${params.id}`);
+      
+      handleBack();
+    }
   }
 
   useEffect(() => {
@@ -58,7 +61,7 @@ export function Details() {
               <ButtonText icon={FiArrowLeft} title="Voltar" onClick={handleBack}/>
               <Title>
                 <h1>{data.title}</h1>
-                <Star rating={data.rating}/>
+                <Star rating={data.rating} className="stars"/>
               </Title>
               <User>
                 <img src={avatarURL} alt={user.name} />

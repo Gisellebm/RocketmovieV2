@@ -36,8 +36,8 @@ export const Content = styled.div`
     }
 
     > #button {
-        align-self: center;
-        width: 53rem;
+        width: 40rem;
+        margin-top: 3rem;
     }
 `
 
@@ -51,6 +51,10 @@ export const Title = styled.div`
     > h1 {
         font-size: 3.6rem;
         font-weight:500;
+    }
+
+    > .stars {
+        font-size: 2.2rem;
     }
 
     > p {

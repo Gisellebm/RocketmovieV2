@@ -45,14 +45,14 @@ export function Profile() {
 
     const navigate = useNavigate();
 
-    function handleHome() {
-        navigate("/");  
+    function handleBack() {
+        navigate(-1);  
     }
 
     return (
         <Container>
             <header>
-                <ButtonText icon={FiArrowLeft} title="Voltar" size={16} onClick={handleHome} />
+                <ButtonText icon={FiArrowLeft} title="Voltar" size={16} onClick={handleBack} />
             </header>
 
             <Form>

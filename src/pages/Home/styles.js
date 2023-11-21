@@ -18,6 +18,7 @@ export const Container = styled.div`
         width: 100%;
         max-width: calc(100% - 24.6rem);
         margin: 0 auto;
+        overflow-y: auto;
     } 
 `
 
@@ -50,13 +51,13 @@ export const NewMovie = styled(Link)`
 
     padding: 1.35rem 3.2rem;
     border-radius: 0.8rem;
+    margin-right: 1rem;
 `;
 
 export const Movies = styled.div`
 
     display: flex;
     flex-direction: column;
-    gap: 4rem;
-    overflow-y: auto;
-    padding: 1rem;
+    gap: 4rem;  
+    padding-right: 1rem;
 `

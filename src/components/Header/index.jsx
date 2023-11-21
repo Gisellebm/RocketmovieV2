@@ -1,20 +1,28 @@
 import { FiSearch } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 import { useAuth } from '../../hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import { Container, Profile } from "./styles";
 import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 import { api } from "../../services/api";
 import { Input } from "../Input";
+import { ButtonText } from "../ButtonText";
 
 export function Header({onChange}) {
     const { signOut, user } = useAuth();
 
     const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
+    const navigate = useNavigate();
+
+    function handleBack() {
+      navigate(-1);
+    }
+
     return (
         <Container>
             <main>
-                <h1>RocketMovies</h1>
+                <ButtonText className="title" title={'RocketMovies'} onClick={handleBack}/>
 
                 <Input 
                         type="search" 
@@ -31,7 +39,7 @@ export function Header({onChange}) {
                     <img src={avatarUrl} alt={user.name} />
                 </Profile>
                 
-                <button onClick={signOut}>Sair</button>
+                <button className='sair' onClick={signOut}>Sair</button>
             </main>
         </Container>
     )
