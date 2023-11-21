@@ -14,7 +14,6 @@ export const Container = styled.div`
 
     > main {
         grid-area: content;
-        overflow-y: auto;
         padding: 4rem 0 8.4rem;
         width: 100%;
         max-width: calc(100% - 24.6rem);
@@ -53,9 +52,11 @@ export const NewMovie = styled(Link)`
     border-radius: 0.8rem;
 `;
 
-export const Content = styled.div`
-    width: 100%;
+export const Movies = styled.div`
+
     display: flex;
     flex-direction: column;
     gap: 4rem;
+    overflow-y: auto;
+    padding: 1rem;
 `

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Container, Form } from "./styles";
+import { api } from "../../services/api";
 import { Header } from "../../components/Header";
 import { ButtonText } from "../../components/ButtonText";
 import { FiArrowLeft } from 'react-icons/fi';
@@ -10,9 +11,9 @@ import { Button } from "../../components/Button";
 import { Markers } from "../../components/Markers";
 
 export function New() {
-  //const [title, setTitle] = useState("");
-  //const [rating, setRating] = useState("");
-  //const [description, setDescription] = useState("");
+  const [title, setTitle] = useState("");
+  const [rating, setRating] = useState("");
+  const [description, setDescription] = useState("");
   const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState("");
   //const [LOADING, setLoading] = useState(false);
@@ -23,6 +24,50 @@ export function New() {
   function handleBack() {
     navigate(-1);
   }
+
+  async function handleNewMovie() {
+    if(!title) {
+      return alert("Por favor, informe o nome do filme!");
+    }
+
+    const isRatingValid = rating >= 0 && rating <= 5;
+
+    if(!isRatingValid) {
+      return alert("Por favor, informe uma nota entre 0 e 5");
+    }
+
+    if(!rating) {
+      return alert("Por favor, informe uma nota para o filme!");
+    }
+
+    if(!description) {
+      return alert("Por favor, informe uma descrição para o filme!");
+    }
+
+    if (newTag) {
+      return alert("Por favor, você precisa clicar no marcador para adicionar!");
+    }
+
+    await api.post("/movies", {
+      title,
+      description,
+      rating,
+      tags
+    });
+
+    alert("Filme adicionado com sucesso");
+    navigate("/")
+  }
+
+  function handleDeleteMovie() {
+    const userConfirmation = confirm("Tem certeza que deseja deletar? Essa ação não poderá ser desfeita!");
+
+    if(userConfirmation) {
+      alert("Filme deletado com sucesso!");
+      navigate("/")
+    }
+  }
+
 
   function handleAddTag() {
     setTags(prevState => [...prevState, newTag]);
@@ -47,6 +92,7 @@ export function New() {
                 <Input
                     type="text"
                     placeholder="Título" 
+                    onChange={event => setTitle(event.target.value)}
                 />
 
                 <Input
@@ -54,10 +100,15 @@ export function New() {
                     placeholder="Sua nota (de 0 a 5)" 
                     min="0"
                     max="5"
+                    value={rating}
+                    onChange={event => setRating(event.target.value)}
                 />
             </div>
 
-            <Textarea placeholder="Observações" />
+            <Textarea 
+              placeholder="Observações" 
+              onChange={event => setDescription(event.target.value)}
+            />
 
             <section>
               <h2>Marcadores</h2>
@@ -85,8 +136,11 @@ export function New() {
             </section>
 
             <div className="twoColumns">
-                <Button title="Excluir filme" className="excluir"/>
-                <Button title="Salvar alterações"/>
+                <Button title="Excluir filme" className="excluir" onClick={handleDeleteMovie}/>
+                <Button 
+                  title="Salvar alterações"
+                  onClick={handleNewMovie}
+                />
             </div>
         </Form>
       </main>

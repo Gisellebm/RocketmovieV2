@@ -23,7 +23,8 @@ export const Container = styled.div`
             font-size: 3.6rem;
             margin: 2.4rem 0 4rem;
         }
-    }   
+    }  
+    
 `
 
 export const Form = styled.div`
@@ -31,6 +32,7 @@ export const Form = styled.div`
     display: flex;
     flex-direction: column;
     gap: 4rem;
+    padding-right: 1rem;
 
     > section {
         width: 100%;

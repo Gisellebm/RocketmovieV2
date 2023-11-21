@@ -15,6 +15,7 @@ export default {
       WHITE: '#F4EDE8',
       PINK: '#FF859B',
       BROWN: '#282124',
+      ROSE: '#46393F',
   
       RED: '#FF002E',
     },

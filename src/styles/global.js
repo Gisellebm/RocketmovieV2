@@ -36,16 +36,12 @@ export default createGlobalStyle`
         filter: brightness(.9);
     }
 
-    &::-webkit-scrollbar {
-        width: 1rem;
+    ::-webkit-scrollbar {
+        width: 0.8rem;
+        height: 2rem;
     }
 
-    &::-webkit-scrollbar-track {
-        background-color: transparent;
-        padding: .5rem;
-    }
-
-    &::-webkit-scrollbar-thumb {
+    ::-webkit-scrollbar-thumb {
         border-radius: .8rem;
         background-color: ${({ theme }) => theme.COLORS.PINK};
     }

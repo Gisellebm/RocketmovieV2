@@ -17,7 +17,4 @@ export const Container = styled.div`
         opacity: 0.5
     }
 
-    &:not(:disabled):hover {
-        filter: brightness(0.8);
-    }
 `

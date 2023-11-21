@@ -10,7 +10,7 @@ export const Container = styled.header`
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
     border-bottom: 1px solid ${({ theme }) => theme.COLORS.GRAY_200};
 
-    > content {
+    > main {
         width: 100%;
         max-width: calc(100% - 24.6rem);
         margin: 0 auto;

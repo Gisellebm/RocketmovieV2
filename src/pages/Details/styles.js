@@ -31,6 +31,8 @@ export const Content = styled.div`
     > p {
         padding-right: 1rem;
         text-align: justify;
+        font-size: 1.6rem;
+        font-weight: 400;
     }
 
     > #button {

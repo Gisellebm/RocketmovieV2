@@ -7,6 +7,13 @@ export const Container = styled.button`
     border: none;
     background-color: ${({ theme }) => theme.COLORS.BROWN};
 
+    &:hover {
+      transition: 0.5s;
+      cursor: pointer;
+      background: ${({ theme }) => theme.COLORS.ROSE};
+   };
+
+
     > h1 {
         font-size: 2.4rem;
         flex: 1;
@@ -27,6 +34,7 @@ export const Container = styled.button`
 
         display: -webkit-box;
         -webkit-line-clamp: 2;
+        line-clamp: 2;
         -webkit-box-orient: vertical;
     }
 
