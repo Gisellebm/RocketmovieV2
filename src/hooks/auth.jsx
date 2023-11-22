@@ -4,7 +4,7 @@ import { api } from "../services/api";
 
 export const AuthContext = createContext({});
 
-function AuthProvider({ children }) { // contexto de autenticação 
+export function AuthProvider({ children }) { // contexto de autenticação 
     const [data, setData] = useState({}); // estado de autenticação 
 
     async function signIn({ email, password }) { // autenticação do usuário 
@@ -85,10 +85,9 @@ function AuthProvider({ children }) { // contexto de autenticação
 }
 
 
-function useAuth() { // função para usar o contexto de autenticação 
+export function useAuth() { // função para usar o contexto de autenticação 
     const context = useContext(AuthContext); // usar o contexto de autenticação 
 
     return context; // retornar o contexto de autenticação 
 }
 
-export { AuthProvider, useAuth }; // exportar o contexto de autenticação 
